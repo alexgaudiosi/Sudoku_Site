@@ -4,13 +4,14 @@
 	<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<h1>Life is too short for playing Sudoku</h1>
+	<p><img src="http://img-s3-01.mytextgraphics.com/sparklee/2014/03/19/b540396d886e0e61f67b520234d1638e.gif">
 	<div id="flash">
 		<%= flash[:notice] %>
 	</div>
-	<div id="sudoku">
-		<input>
-				
+	<p><img src="http://media.thedailytouch.com/2013/12/home-alone-feature.jpg"></p>
+	<p><img src="../images/cat-190.gif"></p>
+	<div id="sudoku">	
+	<form action="/" method="post">
 		<% 3.times do |row| %>
 			<div class='row'>
 			<% 3.times do |box| %>
@@ -18,7 +19,7 @@
 				<% 3.times do |cell_row| %>
 					<div class="cell-row">
 					<% 3.times do |cell| %>
-  <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
+  					<%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
            		<% end %>
             </div>
            <% end %>
@@ -26,10 +27,12 @@
         <% end %>
       </div>
     <% end %>
-    <form action="/" method="post">
-			<button>Check Solution</button>
+    <p><img src="../images/chicken-ani.gif">
+			<button>Check Solution</button><img src="../images/chicken-ani.gif"></p>
 		</form>	
+		<p><button>New Puzzle</button></p>
   </div>
+<iframe width="420" height="315" src="//www.youtube.com/embed/J---aiyznGQ" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
 

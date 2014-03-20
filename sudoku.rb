@@ -3,6 +3,7 @@ require 'sinatra/partial'
 require 'rack-flash'
 use Rack::Flash
 set :partial_template_engine, :erb
+set :session_secret, "I'm the secret key to sign the cookie"
 
 require_relative './lib/sudoku'
 require_relative './lib/cell'
@@ -17,8 +18,11 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-	sudoku
-end
+	 sudoku.map {|sudo| rand < 0.3 ? 0 : sudo  }
+	end
+
+
+
 
 get '/' do
 	prepare_to_check_solution
@@ -41,7 +45,7 @@ post '/' do
   # However, our code expects it to be row by row, 
   # so we need to transform it.
   cells = (params["cell"])
-  session[:current_solution] = cells.map{|value| value.to_i }.join
+  session[:current_solution] = box_order_to_row_order(cells)
   session[:check_solution] = true
   redirect to("/")
 end

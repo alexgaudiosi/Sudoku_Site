@@ -5,6 +5,8 @@ div.box, div.cell {
 .cell input {
 	width: 30px;
 	height: 30px;
+	opacity: 0.5;
+	font-size: 
 }
 
 #sudoku {
@@ -15,6 +17,12 @@ div.box, div.cell {
 body {
 	text-align: center;
 	font-family: Arial;
+	background-image: url("../images/patriotic_eagle_tank.jpg");
+
+}
+
+h1 {
+	font-family: 'Comic Sans';
 }
 
 .incorrect {
@@ -27,4 +35,8 @@ body {
 
 #flash {
 	margin:20px;
+}
+
+.box {
+	outline: 3px solid #000000;
 }

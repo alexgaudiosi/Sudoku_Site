@@ -20,6 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack
   rack-flash3
   shotgun
   sinatra
