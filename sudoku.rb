@@ -21,6 +21,7 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
+
 	 sudoku.map {|sudo| rand < 0.3 ? 0 : sudo  }
 	end
 
@@ -52,6 +53,11 @@ post '/' do
   session[:current_solution] = box_order_to_row_order(cells)
   session[:check_solution] = true
   redirect to("/")
+end
+
+post '/restart' do
+	session[:current_solution] = nil
+	redirect to("/")
 end
 
 def box_order_to_row_order(cells)
