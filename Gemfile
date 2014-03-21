@@ -6,5 +6,6 @@ gem 'rack-flash3'
 gem 'rack'
 gem 'heroku'
 gem 'pg'
+gem 'newrelic_rpm'
 
 ruby '2.1.0'
