@@ -8,7 +8,7 @@
 	<div id="flash">
 		<%= flash[:notice] %>
 	</div>
-	<p><img src="http://media.thedailytouch.com/2013/12/home-alone-feature.jpg"></p>
+	<p><img width= 400px src="http://media.thedailytouch.com/2013/12/home-alone-feature.jpg"></p>
 	<p><img src="../images/cat-190.gif"></p>
 	<div id="sudoku">	
 	<form action="/" method="post">
@@ -31,10 +31,9 @@
     <p><img src="../images/chicken-ani.gif">
 			<button>Check Solution</button><img src="../images/chicken-ani.gif"></p>
 		</form>	
-		<form action="/restart" method="post"><p><button>New Puzzle</button></p></form>
+		<form action="/restart" method="post">
+		<p><button name="diffulculty" value="1">Easy</button><button name="diffulculty" value="2" >Medium</button> <button name="diffulculty" value="3" >Hard</button></form>
   </div>
 <iframe width="420" height="315" src="http://www.youtube.com/v/Nr0fXkRh9IQ?&autoplay=1&loop=1?&playlist=Nr0fXkRh9IQ" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
-
-						<!--<input name="cell[]">

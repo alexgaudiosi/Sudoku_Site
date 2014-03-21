@@ -4,7 +4,7 @@ require 'rack-flash'
 
 require_relative './lib/sudoku'
 require_relative './lib/cell'
-require_relative './helpers/application.rb'
+require_relative './helpers/application'
 use Rack::Flash
 set :partial_template_engine, :erb
 set :session_secret, "I'm the secret key to sign the cookie"
@@ -21,12 +21,12 @@ def random_sudoku
 end
 
 def puzzle(sudoku)
-
-	 sudoku.map {|sudo| rand < 0.3 ? 0 : sudo  }
+	y = session[:difficulty]
+	x = 0.15 if y = 3
+	x = 0.45 if y = 2 
+	x = 0.85 if y = 1
+	 sudoku.map {|sudo| rand < x ? 0 : sudo  }
 	end
-
-
-
 
 get '/' do
 	prepare_to_check_solution
@@ -38,17 +38,12 @@ get '/' do
 end
 
 get '/solution' do
-	@current_solution = session[:solution]
-		@puzzle = session[:puzzle]
+ redirect to("/") if @check_solution == nil
+  @current_solution = session[:solution]
 	erb :index
 end
 
 post '/' do
-# the cells in HTML are ordered box by box 
-  # (first box1, then box2, etc),
-  # so the form data (params['cell']) is sent using this order
-  # However, our code expects it to be row by row, 
-  # so we need to transform it.
   cells = (params["cell"])
   session[:current_solution] = box_order_to_row_order(cells)
   session[:check_solution] = true
@@ -57,6 +52,7 @@ end
 
 post '/restart' do
 	session[:current_solution] = nil
+	session[:difficulty] = params[:difficulty].to_i
 	redirect to("/")
 end
 
@@ -89,9 +85,3 @@ def prepare_to_check_solution
 		end
 	session[:check_solution] = nil
 end
-
-
-
-					
-
-
