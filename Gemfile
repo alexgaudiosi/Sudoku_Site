@@ -7,4 +7,4 @@ gem 'rack'
 gem 'heroku'
 gem 'pg'
 
-ruby '2.0.0'
+ruby '2.1.0'

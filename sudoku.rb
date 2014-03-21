@@ -1,12 +1,15 @@
 require 'sinatra'
 require 'sinatra/partial'
 require 'rack-flash'
+
+require_relative './lib/sudoku'
+require_relative './lib/cell'
+require_relative './helpers/application.rb'
 use Rack::Flash
 set :partial_template_engine, :erb
 set :session_secret, "I'm the secret key to sign the cookie"
 
-require_relative './lib/sudoku'
-require_relative './lib/cell'
+
 
 enable :sessions
 
@@ -35,6 +38,7 @@ end
 
 get '/solution' do
 	@current_solution = session[:solution]
+		@puzzle = session[:puzzle]
 	erb :index
 end
 
