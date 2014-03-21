@@ -17,6 +17,7 @@ GEM
     mime-types (2.2)
     multi_json (1.9.2)
     netrc (0.7.7)
+    pg (0.17.1)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -40,6 +41,7 @@ PLATFORMS
 
 DEPENDENCIES
   heroku
+  pg
   rack
   rack-flash3
   shotgun

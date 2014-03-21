@@ -5,3 +5,6 @@ gem 'sinatra-partial'
 gem 'rack-flash3'
 gem 'rack'
 gem 'heroku'
+gem 'pg'
+
+ruby '2.0.0'
