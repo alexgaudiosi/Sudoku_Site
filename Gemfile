@@ -4,3 +4,4 @@ gem 'shotgun' # for live code reloading
 gem 'sinatra-partial'
 gem 'rack-flash3'
 gem 'rack'
+gem 'heroku'
